@@ -126,14 +126,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Collision.cpp" />
+    <ClCompile Include="Source\Draw.cpp" />
+    <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Shaders.cpp" />
     <ClCompile Include="Source\TextRenderer.cpp" />
     <ClCompile Include="Source\Util.cpp" />
+    <ClCompile Include="Source\VAOManager.cpp" />
+    <ClCompile Include="Source\Vertices.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Collision.h" />
+    <ClInclude Include="Header\Draw.h" />
+    <ClInclude Include="Header\Input.h" />
+    <ClInclude Include="Header\Shaders.h" />
     <ClInclude Include="Header\stb_image.h" />
     <ClInclude Include="Header\TextRenderer.h" />
     <ClInclude Include="Header\Util.h" />
+    <ClInclude Include="Header\VAOManager.h" />
+    <ClInclude Include="Header\Vertices.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
