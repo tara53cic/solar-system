@@ -92,10 +92,10 @@
     <None Include="Shaders\rocket.frag">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="Shaders\color.vert">
+    <None Include="Shaders\alien.vert">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="Shaders\color.frag">
+    <None Include="Shaders\alien.frag">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
@@ -143,9 +143,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\Screenshot_20190320-145515.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resources\shutterstock-1041249343-ezgif.com-webp-to-jpg-converter.jpg">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\cursor.png">
@@ -209,6 +206,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\uncaptured8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\alien8_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\jup.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

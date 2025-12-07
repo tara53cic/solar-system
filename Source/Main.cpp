@@ -53,6 +53,15 @@ unsigned uranusTexture;
 unsigned neptuneTexture;
 unsigned plutoTexture;
 
+unsigned mercuryAlienTexture;
+unsigned venusAlienTexture;
+unsigned marsAlienTexture;
+unsigned jupiterAlienTexture;
+unsigned saturnAlienTexture;
+unsigned uranusAlienTexture;
+unsigned neptuneAlienTexture;
+unsigned plutoAlienTexture;
+
 unsigned mercuryAlienCaughtTexture;
 unsigned mercuryAlienNotCaughtTexture;
 unsigned venusAlienNotCaughtTexture;
@@ -143,8 +152,24 @@ int main()
     preprocessTexture(distanceBackgroundTexture, "Resources/purpletransparent50.png");
     //raketa
     preprocessTexture(rocketTexture, "Resources/rocket2.png");
-    //merkur pozadina
+    //planete-pozadine
     preprocessTexture(mercuryTexture, "Resources/Screenshot_20190320-145515.png");
+    preprocessTexture(venusTexture, "Resources/phoebe-regio-640x381-ezgif.com-webp-to-jpg-converter.jpg");
+    preprocessTexture(marsTexture, "Resources/istockphoto-1353996708-612x612.jpg");
+    preprocessTexture(jupiterTexture, "jup.jpg");
+    preprocessTexture(saturnTexture, "Resources/PIA17043.jpg");
+    preprocessTexture(uranusTexture, "Resources/61HS9YSFT4L._AC_UF894,1000_QL80_.jpg");
+    preprocessTexture(neptuneTexture, "Resources/images.jpg");
+    preprocessTexture(plutoTexture, "Resources/neptune_fin_flood_LD_v4.jpg");
+    //planete-vanzemaljci
+    preprocessTexture(mercuryAlienTexture, "Resources/alien1_1.png");
+    preprocessTexture(venusAlienTexture, "Resources/alien2_1.png");
+    preprocessTexture(marsAlienTexture, "Resources/alien3_1.png");
+    preprocessTexture(jupiterAlienTexture, "Resources/alien4_1.png");
+    preprocessTexture(saturnAlienTexture, "Resources/alien5_1.png");
+    preprocessTexture(uranusAlienTexture, "Resources/alien6_1.png");
+    preprocessTexture(neptuneAlienTexture, "Resources/alien7_1.png");
+    preprocessTexture(plutoAlienTexture, "Resources/alien8_1.png");
     //uhvaćeni vanzemaljci
     preprocessTexture(mercuryAlienCaughtTexture, "Resources/captured1.png");
     preprocessTexture(venusAlienCaughtTexture, "Resources/captured2.png");
@@ -166,8 +191,8 @@ int main()
     preprocessTexture(plutoAlienNotCaughtTexture, "Resources/uncaptured8.png");
     //////////
     //učitavanje shadera
-    unsigned int backgroundShader, nametagShader, distanceBackgroundShader, rocketShader, alienShader;
-    loadAllShaders(backgroundShader, nametagShader, distanceBackgroundShader, rocketShader,alienShader);
+    unsigned int backgroundShader, nametagShader, distanceBackgroundShader, rocketShader, alienIconShader, alienShader;
+    loadAllShaders(backgroundShader, nametagShader, distanceBackgroundShader, rocketShader,alienIconShader,alienShader);
 
     ////////////
     
@@ -189,6 +214,7 @@ int main()
     unsigned int VAOsaturnIcon;
     unsigned int VAOuranusIcon;
     unsigned int VAOneptuneIcon;
+    unsigned int VAOAlien;
     
 
     formVAOs(
@@ -203,7 +229,8 @@ int main()
         verticesJupiterIcon, sizeof(verticesJupiterIcon), VAOjupiterIcon,
         verticesSaturnIcon, sizeof(verticesSaturnIcon), VAOsaturnIcon,
         verticesUranusIcon, sizeof(verticesUranusIcon), VAOuranusIcon,
-        verticesNeptuneIcon, sizeof(verticesNeptuneIcon), VAOneptuneIcon
+        verticesNeptuneIcon, sizeof(verticesNeptuneIcon), VAOneptuneIcon,
+        verticesAlien, sizeof(verticesAlien),VAOAlien
     );
 
  
@@ -256,7 +283,6 @@ int main()
 
         registerPlanetBox(getBounds(verticesMercury));
         registerPlanetBox(getBounds(verticesVenus));
-        registerPlanetBox(getBounds(verticesEarth));
         registerPlanetBox(getBounds(verticesMars));
         registerPlanetBox(getBounds(verticesJupiter));
         registerPlanetBox(getBounds(verticesSaturn));
@@ -277,24 +303,91 @@ int main()
         {
         case 0:
         {
-            drawBackground(backgroundShader, VAObackground,spaceTexture); // crta pozadinu
-            drawDistanceBackground(distanceBackgroundShader, VAOdistanceBackground, distanceBackgroundTexture); // crta pozadinu distance teksta
-            drawRocket(rocketShader, VAOrocket, rocketTexture, uX, uY,uRot); // crta raketu
-            textRenderer.RenderText(distText, 25.0f, mode->height - 50.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f)); // crta distance tekst
-            break;
-        }
-        case 1: {
-            drawBackground(backgroundShader, VAObackground, mercuryTexture); // crta pozadinu
-            break;
-        }
-        default:
             drawBackground(backgroundShader, VAObackground, spaceTexture); // crta pozadinu
             drawDistanceBackground(distanceBackgroundShader, VAOdistanceBackground, distanceBackgroundTexture); // crta pozadinu distance teksta
             drawRocket(rocketShader, VAOrocket, rocketTexture, uX, uY, uRot); // crta raketu
             textRenderer.RenderText(distText, 25.0f, mode->height - 50.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f)); // crta distance tekst
             break;
         }
+        case 1: 
+        {
+            drawBackground(backgroundShader, VAObackground, mercuryTexture); // crta pozadinu
+            if (!mercuryCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, mercuryAlienTexture);
+                mercuryCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
+        case 2: {
+            drawBackground(backgroundShader, VAObackground, venusTexture); // crta pozadinu
+            if (!venusCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, venusAlienTexture);
+                venusCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
+        case 3: {
+            drawBackground(backgroundShader, VAObackground, marsTexture); // crta pozadinu
+            if (!marsCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, marsAlienTexture);
+                marsCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
+        case 4: {
+            drawBackground(backgroundShader, VAObackground, jupiterTexture); // crta pozadinu
+            if (!jupiterCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, jupiterAlienTexture);
+                jupiterCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
+        case 5: {
+            drawBackground(backgroundShader, VAObackground, saturnTexture); // crta pozadinu
+            if (!saturnCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, saturnAlienTexture);
+                saturnCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
+        case 6:
+        {
+            drawBackground(backgroundShader, VAObackground, uranusTexture); // crta pozadinu
+            if (!uranusCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, uranusAlienTexture);
+                uranusCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
+        case 7:
+        {
+            drawBackground(backgroundShader, VAObackground, neptuneTexture); // crta pozadinu
+            if (!neptuneCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, neptuneAlienTexture);
+                neptuneCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
 
+        case 8:
+        {
+            drawBackground(backgroundShader, VAObackground, plutoTexture); // crta pozadinu
+            if (!plutoCaught) {
+                Vec2 alienPos = drawAlien(alienShader, VAOAlien, plutoAlienTexture);
+                plutoCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
+            }
+            break;
+        }
+
+        default:
+        {
+            drawBackground(backgroundShader, VAObackground, spaceTexture); // crta pozadinu
+            drawDistanceBackground(distanceBackgroundShader, VAOdistanceBackground, distanceBackgroundTexture); // crta pozadinu distance teksta
+            drawRocket(rocketShader, VAOrocket, rocketTexture, uX, uY, uRot); // crta raketu
+            textRenderer.RenderText(distText, 25.0f, mode->height - 50.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f)); // crta distance tekst
+            break;
+        }
+        }
         drawNametag(nametagShader, VAOnametag, distanceBackgroundTexture); // crta pločicu sa imenom
         std::string nametagText = "Tara Petricic, RA 141/2022";
         textRenderer.RenderText(nametagText, 25.0f, 28.0f, 1.0f, glm::vec3(1.0f));
@@ -302,59 +395,59 @@ int main()
 
         //crta ikonice vanzemaljaca
         if (!plutoCaught) {
-            drawAlienIcon(alienShader, VAOplutoIcon, plutoAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOplutoIcon, plutoAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOplutoIcon, plutoAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOplutoIcon, plutoAlienCaughtTexture);
         }
 
         if (!mercuryCaught) {
-            drawAlienIcon(alienShader, VAOmercuryIcon, mercuryAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOmercuryIcon, mercuryAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOmercuryIcon, mercuryAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOmercuryIcon, mercuryAlienCaughtTexture);
         }
 
         if (!venusCaught) {
-            drawAlienIcon(alienShader, VAOvenusIcon, venusAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOvenusIcon, venusAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOvenusIcon, venusAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOvenusIcon, venusAlienCaughtTexture);
         }
 
         if (!marsCaught) {
-            drawAlienIcon(alienShader, VAOmarsIcon, marsAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOmarsIcon, marsAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOmarsIcon, marsAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOmarsIcon, marsAlienCaughtTexture);
         }
 
         if (!jupiterCaught) {
-            drawAlienIcon(alienShader, VAOjupiterIcon, jupiterAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOjupiterIcon, jupiterAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOjupiterIcon, jupiterAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOjupiterIcon, jupiterAlienCaughtTexture);
         }
 
         if (!saturnCaught) {
-            drawAlienIcon(alienShader, VAOsaturnIcon, saturnAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOsaturnIcon, saturnAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOsaturnIcon, saturnAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOsaturnIcon, saturnAlienCaughtTexture);
         }
 
         if (!uranusCaught) {
-            drawAlienIcon(alienShader, VAOuranusIcon, uranusAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOuranusIcon, uranusAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOuranusIcon, uranusAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOuranusIcon, uranusAlienCaughtTexture);
         }
 
         if (!neptuneCaught) {
-            drawAlienIcon(alienShader, VAOneptuneIcon, neptuneAlienNotCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOneptuneIcon, neptuneAlienNotCaughtTexture);
         }
         else {
-            drawAlienIcon(alienShader, VAOneptuneIcon, neptuneAlienCaughtTexture);
+            drawAlienIcon(alienIconShader, VAOneptuneIcon, neptuneAlienCaughtTexture);
         }
 
         ///////////////////////////

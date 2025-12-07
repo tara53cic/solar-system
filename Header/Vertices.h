@@ -40,3 +40,5 @@ extern float verticesSaturnIcon[16];
 extern float verticesUranusIcon[16];
 extern float verticesNeptuneIcon[16];
 extern float verticesPlutoIcon[16];
+
+extern float verticesAlien[16];

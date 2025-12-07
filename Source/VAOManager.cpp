@@ -37,7 +37,9 @@ void formVAOs(
     float* verticesUranusIcon, size_t uranusIconSize, unsigned int& VAOuranusIcon,
 
     // Neptune icon
-    float* verticesNeptuneIcon, size_t neptuneIconSize, unsigned int& VAOneptuneIcon
+    float* verticesNeptuneIcon, size_t neptuneIconSize, unsigned int& VAOneptuneIcon,
+    //Alien
+    float* verticesAlien, size_t alienSize, unsigned int& VAOalien
 ) {
 
     // Pozadina
@@ -231,6 +233,22 @@ void formVAOs(
     glBindVertexArray(VAOplutoIcon);
     glBindBuffer(GL_ARRAY_BUFFER, VBOplutoIcon);
     glBufferData(GL_ARRAY_BUFFER, plutoIconSize, verticesPlutoIcon, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    //alien
+
+    unsigned int VBOalien;
+    glGenVertexArrays(1, &VAOalien);
+    glGenBuffers(1, &VBOalien);
+
+    glBindVertexArray(VAOalien);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOalien);
+    glBufferData(GL_ARRAY_BUFFER, alienSize, verticesAlien, GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);

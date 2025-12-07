@@ -6,6 +6,8 @@ struct BoundingBox {
 
 BoundingBox getBounds(float* vertices);
 
+BoundingBox getAlienBounds(float* vertices, float posX, float posY);
+
 
 void registerPlanetBox(const BoundingBox& box);
 

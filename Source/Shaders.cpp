@@ -7,6 +7,7 @@ unsigned int loadAllShaders(
     unsigned int& nametagShader,
     unsigned int& distanceBackgroundShader,
     unsigned int& rocketShader,
+    unsigned int& alienIconShader,
     unsigned int& alienShader)
 {
     backgroundShader = createShader("Shaders/background.vert", "Shaders/background.frag");
@@ -25,7 +26,11 @@ unsigned int loadAllShaders(
     glUseProgram(rocketShader);
     glUniform1i(glGetUniformLocation(rocketShader, "uTex0"), 0);
 
-    alienShader= createShader("Shaders/rect.vert", "Shaders/rect.frag");
+    alienIconShader= createShader("Shaders/rect.vert", "Shaders/rect.frag");
+    glUseProgram(alienIconShader);
+    glUniform1i(glGetUniformLocation(alienIconShader, "uTex0"), 0);
+
+    alienShader = createShader("Shaders/alien.vert", "Shaders/alien.frag");
     glUseProgram(alienShader);
     glUniform1i(glGetUniformLocation(alienShader, "uTex0"), 0);
 

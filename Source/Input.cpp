@@ -42,3 +42,28 @@ void processInput(
 
     distanceMoved += distancePixels * BkmPerPixel;
 }
+bool processClick(GLFWwindow* window, float alienX, float alienY, float verticesAlien[16]) {
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+
+        int screenWidth, screenHeight;
+        glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
+
+        float xposNorm = (xpos / screenWidth) * 2 - 1;
+        float yposNorm = -((ypos / screenHeight) * 2 - 1);
+
+        BoundingBox box = getAlienBounds(verticesAlien, alienX, alienY);
+
+        if (xposNorm >= box.left && xposNorm <= box.right &&
+            yposNorm >= box.bottom && yposNorm <= box.top)
+        {
+            if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+                return true;
+            }
+		}
+		else {
+			return false;
+        }
+
+
+}

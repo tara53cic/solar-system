@@ -5,6 +5,7 @@ unsigned int loadAllShaders(
     unsigned int& nametagShader,
     unsigned int& distanceBackgroundShader,
     unsigned int& rocketShader,
+    unsigned int& alienIconShader,
     unsigned int& alienShader
 );
 #pragma once

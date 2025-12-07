@@ -15,6 +15,17 @@ BoundingBox getBounds(float* vertices)
 
     return box;
 }
+BoundingBox getAlienBounds(float* vertices, float posX, float posY)
+{
+    BoundingBox box;
+
+    box.left = vertices[0] + posX;
+    box.right = vertices[8] + posX;
+    box.top = vertices[1] + posY;
+    box.bottom = vertices[5] + posY;
+
+    return box;
+}
 
 void registerPlanetBox(const BoundingBox& box)
 {
