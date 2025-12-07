@@ -173,10 +173,10 @@ float verticesMercuryIcon[] = {
 
 float verticesAlien[] = {
     //   X       Y       U   V
-    -0.08125f,  -0.4778f, 0.0f, 1.0f, // top-left
-    -0.08125f, -0.8111f, 0.0f, 0.0f, // bottom-left
-     0.08125f, -0.8111f, 1.0f, 0.0f, // bottom-right
-     0.08125f,  -0.4778f, 1.0f, 1.0f  // top-right
+    -0.08125f,  -0.6078f, 0.0f, 1.0f, // top-left
+    -0.08125f, -0.9411f, 0.0f, 0.0f, // bottom-left
+     0.08125f, -0.9411f, 1.0f, 0.0f, // bottom-right
+     0.08125f,  -0.6078f, 1.0f, 1.0f  // top-right
 };
 
 

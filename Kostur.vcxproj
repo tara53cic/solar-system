@@ -160,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\-OWrBW3G.png" />
-    <Image Include="Resources\61HS9YSFT4L._AC_UF894,1000_QL80_.jpg" />
     <Image Include="Resources\alien1_1.png" />
     <Image Include="Resources\alien2_1.png" />
     <Image Include="Resources\alien3_1.png" />
@@ -178,16 +177,15 @@
     <Image Include="Resources\captured7.png" />
     <Image Include="Resources\captured8.png" />
     <Image Include="Resources\cursor.png" />
-    <Image Include="Resources\images.jpg" />
-    <Image Include="Resources\istockphoto-1353996708-612x612.jpg" />
-    <Image Include="Resources\jup.jpg" />
+    <Image Include="Resources\jupiter.jpg" />
+    <Image Include="Resources\mars.jpeg" />
+    <Image Include="Resources\mercury.jpeg" />
     <Image Include="Resources\nametag2.png" />
-    <Image Include="Resources\neptune_fin_flood_LD_v4.jpg" />
-    <Image Include="Resources\phoebe-regio-640x381-ezgif.com-webp-to-jpg-converter.jpg" />
-    <Image Include="Resources\PIA17043.jpg" />
+    <Image Include="Resources\neptune.jpeg" />
+    <Image Include="Resources\pluto.jpg" />
     <Image Include="Resources\purpletransparent50.png" />
     <Image Include="Resources\rocket2.png" />
-    <Image Include="Resources\Screenshot_20190320-145515.png" />
+    <Image Include="Resources\saturn.jpg" />
     <Image Include="Resources\star.png" />
     <Image Include="Resources\uncaptured1.png" />
     <Image Include="Resources\uncaptured2.png" />
@@ -197,6 +195,8 @@
     <Image Include="Resources\uncaptured6.png" />
     <Image Include="Resources\uncaptured7.png" />
     <Image Include="Resources\uncaptured8.png" />
+    <Image Include="Resources\uranus.jpg" />
+    <Image Include="Resources\venus.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\ScienceGothic_Condensed-Regular.ttf" />

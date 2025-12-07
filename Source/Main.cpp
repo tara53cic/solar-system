@@ -153,14 +153,14 @@ int main()
     //raketa
     preprocessTexture(rocketTexture, "Resources/rocket2.png");
     //planete-pozadine
-    preprocessTexture(mercuryTexture, "Resources/Screenshot_20190320-145515.png");
-    preprocessTexture(venusTexture, "Resources/phoebe-regio-640x381-ezgif.com-webp-to-jpg-converter.jpg");
-    preprocessTexture(marsTexture, "Resources/istockphoto-1353996708-612x612.jpg");
-    preprocessTexture(jupiterTexture, "jup.jpg");
-    preprocessTexture(saturnTexture, "Resources/PIA17043.jpg");
-    preprocessTexture(uranusTexture, "Resources/61HS9YSFT4L._AC_UF894,1000_QL80_.jpg");
-    preprocessTexture(neptuneTexture, "Resources/images.jpg");
-    preprocessTexture(plutoTexture, "Resources/neptune_fin_flood_LD_v4.jpg");
+    preprocessTexture(mercuryTexture, "Resources/mercury.jpeg");
+    preprocessTexture(venusTexture, "Resources/venus.jpg");
+    preprocessTexture(marsTexture, "Resources/mars.jpeg");
+    preprocessTexture(jupiterTexture, "Resources/jupiter.jpg");
+    preprocessTexture(saturnTexture, "Resources/saturn.jpg");
+    preprocessTexture(uranusTexture, "Resources/uranus.jpg");
+    preprocessTexture(neptuneTexture, "Resources/neptune.jpeg");
+    preprocessTexture(plutoTexture, "Resources/pluto.jpg");
     //planete-vanzemaljci
     preprocessTexture(mercuryAlienTexture, "Resources/alien1_1.png");
     preprocessTexture(venusAlienTexture, "Resources/alien2_1.png");
