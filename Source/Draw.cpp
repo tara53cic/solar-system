@@ -45,3 +45,14 @@ void drawRocket(unsigned int rocketShader, unsigned int VAOrocket, unsigned int 
     glBindVertexArray(VAOrocket);
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 }
+
+void drawAlienIcon(unsigned int alienIconShader, unsigned int VAOalienIcon, unsigned int alienIconTexture) {
+
+    glUseProgram(alienIconShader);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, alienIconTexture);
+
+    glBindVertexArray(VAOalienIcon);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+}

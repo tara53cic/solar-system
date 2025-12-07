@@ -168,6 +168,14 @@
     <Image Include="Resources\alien5_1.png" />
     <Image Include="Resources\alien6_1.png" />
     <Image Include="Resources\alien7_1.png" />
+    <Image Include="Resources\captured1.png" />
+    <Image Include="Resources\captured2.png" />
+    <Image Include="Resources\captured3.png" />
+    <Image Include="Resources\captured4.png" />
+    <Image Include="Resources\captured5.png" />
+    <Image Include="Resources\captured6.png" />
+    <Image Include="Resources\captured7.png" />
+    <Image Include="Resources\captured8.png" />
     <Image Include="Resources\cursor.png" />
     <Image Include="Resources\images.jpg" />
     <Image Include="Resources\istockphoto-1353996708-612x612.jpg" />
@@ -176,11 +184,18 @@
     <Image Include="Resources\phoebe-regio-640x381-ezgif.com-webp-to-jpg-converter.jpg" />
     <Image Include="Resources\PIA17043.jpg" />
     <Image Include="Resources\purpletransparent50.png" />
-    <Image Include="Resources\rocket.png" />
     <Image Include="Resources\rocket2.png" />
     <Image Include="Resources\Screenshot_20190320-145515.png" />
     <Image Include="Resources\shutterstock-1041249343-ezgif.com-webp-to-jpg-converter.jpg" />
     <Image Include="Resources\star.png" />
+    <Image Include="Resources\uncaptured1.png" />
+    <Image Include="Resources\uncaptured2.png" />
+    <Image Include="Resources\uncaptured3.png" />
+    <Image Include="Resources\uncaptured4.png" />
+    <Image Include="Resources\uncaptured5.png" />
+    <Image Include="Resources\uncaptured6.png" />
+    <Image Include="Resources\uncaptured7.png" />
+    <Image Include="Resources\uncaptured8.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\ScienceGothic_Condensed-Regular.ttf" />

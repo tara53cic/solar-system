@@ -20,6 +20,17 @@
 //promenljiva za praćenje scene
 int state;
 
+//uhvaćen vanzemaljac?
+
+bool mercuryCaught = false;
+bool venusCaught = false;
+bool marsCaught = false;
+bool jupiterCaught = false;
+bool saturnCaught = false;
+bool uranusCaught = false;
+bool neptuneCaught = false;
+bool plutoCaught = false;
+
 //promenljive za pomeranje rakete
 
 float uX = 0.0f; 
@@ -32,7 +43,32 @@ unsigned spaceTexture;
 unsigned nametagTexture;
 unsigned distanceBackgroundTexture;
 unsigned rocketTexture;
+
 unsigned mercuryTexture;
+unsigned venusTexture;
+unsigned marsTexture;
+unsigned jupiterTexture;
+unsigned saturnTexture;
+unsigned uranusTexture;
+unsigned neptuneTexture;
+unsigned plutoTexture;
+
+unsigned mercuryAlienCaughtTexture;
+unsigned mercuryAlienNotCaughtTexture;
+unsigned venusAlienNotCaughtTexture;
+unsigned venusAlienCaughtTexture;
+unsigned marsAlienNotCaughtTexture;
+unsigned marsAlienCaughtTexture;
+unsigned jupiterAlienNotCaughtTexture;
+unsigned jupiterAlienCaughtTexture;
+unsigned saturnAlienNotCaughtTexture;
+unsigned saturnAlienCaughtTexture;
+unsigned uranusAlienNotCaughtTexture;
+unsigned uranusAlienCaughtTexture;
+unsigned neptuneAlienNotCaughtTexture;
+unsigned neptuneAlienCaughtTexture;
+unsigned plutoAlienNotCaughtTexture;
+unsigned plutoAlienCaughtTexture;
 
 void preprocessTexture(unsigned& texture, const char* filepath) {
     texture = loadImageToTexture(filepath); // Učitavanje teksture
@@ -109,10 +145,29 @@ int main()
     preprocessTexture(rocketTexture, "Resources/rocket2.png");
     //merkur pozadina
     preprocessTexture(mercuryTexture, "Resources/Screenshot_20190320-145515.png");
+    //uhvaćeni vanzemaljci
+    preprocessTexture(mercuryAlienCaughtTexture, "Resources/captured1.png");
+    preprocessTexture(venusAlienCaughtTexture, "Resources/captured2.png");
+    preprocessTexture(marsAlienCaughtTexture, "Resources/captured3.png");
+    preprocessTexture(jupiterAlienCaughtTexture, "Resources/captured4.png");
+    preprocessTexture(saturnAlienCaughtTexture, "Resources/captured5.png");
+    preprocessTexture(uranusAlienCaughtTexture, "Resources/captured6.png");
+    preprocessTexture(neptuneAlienCaughtTexture, "Resources/captured7.png");
+    preprocessTexture(plutoAlienCaughtTexture, "Resources/captured8.png");
+
+    //neuhvaćeni vanzemaljci
+    preprocessTexture(mercuryAlienNotCaughtTexture, "Resources/uncaptured1.png");
+    preprocessTexture(venusAlienNotCaughtTexture, "Resources/uncaptured2.png");
+    preprocessTexture(marsAlienNotCaughtTexture, "Resources/uncaptured3.png");
+    preprocessTexture(jupiterAlienNotCaughtTexture, "Resources/uncaptured4.png");
+    preprocessTexture(saturnAlienNotCaughtTexture, "Resources/uncaptured5.png");
+    preprocessTexture(uranusAlienNotCaughtTexture, "Resources/uncaptured6.png");
+    preprocessTexture(neptuneAlienNotCaughtTexture, "Resources/uncaptured7.png");
+    preprocessTexture(plutoAlienNotCaughtTexture, "Resources/uncaptured8.png");
     //////////
     //učitavanje shadera
-    unsigned int backgroundShader, nametagShader, distanceBackgroundShader, rocketShader;
-    loadAllShaders(backgroundShader, nametagShader, distanceBackgroundShader, rocketShader);
+    unsigned int backgroundShader, nametagShader, distanceBackgroundShader, rocketShader, alienShader;
+    loadAllShaders(backgroundShader, nametagShader, distanceBackgroundShader, rocketShader,alienShader);
 
     ////////////
     
@@ -126,12 +181,29 @@ int main()
     unsigned int VAOnametag;
     unsigned int VAOdistanceBackground;
     unsigned int VAOrocket;
+    unsigned int VAOplutoIcon;
+    unsigned int VAOmercuryIcon;
+    unsigned int VAOvenusIcon;
+    unsigned int VAOmarsIcon;
+    unsigned int VAOjupiterIcon;
+    unsigned int VAOsaturnIcon;
+    unsigned int VAOuranusIcon;
+    unsigned int VAOneptuneIcon;
+    
 
     formVAOs(
         verticesBackground, sizeof(verticesBackground), VAObackground,
         verticesNametag, sizeof(verticesNametag), VAOnametag,
         verticesTopLeftRect, sizeof(verticesTopLeftRect), VAOdistanceBackground,
-        verticesRocket, sizeof(verticesRocket), VAOrocket
+        verticesRocket, sizeof(verticesRocket), VAOrocket,
+        verticesPlutoIcon, sizeof(verticesPlutoIcon), VAOplutoIcon,
+        verticesMercuryIcon, sizeof(verticesMercuryIcon), VAOmercuryIcon,
+        verticesVenusIcon, sizeof(verticesVenusIcon), VAOvenusIcon,
+        verticesMarsIcon, sizeof(verticesMarsIcon), VAOmarsIcon,
+        verticesJupiterIcon, sizeof(verticesJupiterIcon), VAOjupiterIcon,
+        verticesSaturnIcon, sizeof(verticesSaturnIcon), VAOsaturnIcon,
+        verticesUranusIcon, sizeof(verticesUranusIcon), VAOuranusIcon,
+        verticesNeptuneIcon, sizeof(verticesNeptuneIcon), VAOneptuneIcon
     );
 
  
@@ -226,6 +298,65 @@ int main()
         drawNametag(nametagShader, VAOnametag, distanceBackgroundTexture); // crta pločicu sa imenom
         std::string nametagText = "Tara Petricic, RA 141/2022";
         textRenderer.RenderText(nametagText, 25.0f, 28.0f, 1.0f, glm::vec3(1.0f));
+
+
+        //crta ikonice vanzemaljaca
+        if (!plutoCaught) {
+            drawAlienIcon(alienShader, VAOplutoIcon, plutoAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOplutoIcon, plutoAlienCaughtTexture);
+        }
+
+        if (!mercuryCaught) {
+            drawAlienIcon(alienShader, VAOmercuryIcon, mercuryAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOmercuryIcon, mercuryAlienCaughtTexture);
+        }
+
+        if (!venusCaught) {
+            drawAlienIcon(alienShader, VAOvenusIcon, venusAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOvenusIcon, venusAlienCaughtTexture);
+        }
+
+        if (!marsCaught) {
+            drawAlienIcon(alienShader, VAOmarsIcon, marsAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOmarsIcon, marsAlienCaughtTexture);
+        }
+
+        if (!jupiterCaught) {
+            drawAlienIcon(alienShader, VAOjupiterIcon, jupiterAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOjupiterIcon, jupiterAlienCaughtTexture);
+        }
+
+        if (!saturnCaught) {
+            drawAlienIcon(alienShader, VAOsaturnIcon, saturnAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOsaturnIcon, saturnAlienCaughtTexture);
+        }
+
+        if (!uranusCaught) {
+            drawAlienIcon(alienShader, VAOuranusIcon, uranusAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOuranusIcon, uranusAlienCaughtTexture);
+        }
+
+        if (!neptuneCaught) {
+            drawAlienIcon(alienShader, VAOneptuneIcon, neptuneAlienNotCaughtTexture);
+        }
+        else {
+            drawAlienIcon(alienShader, VAOneptuneIcon, neptuneAlienCaughtTexture);
+        }
+
         ///////////////////////////
 
 

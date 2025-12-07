@@ -148,9 +148,6 @@
     <Image Include="Resources\shutterstock-1041249343-ezgif.com-webp-to-jpg-converter.jpg">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Resources\rocket.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Resources\cursor.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -164,6 +161,54 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\rocket2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\captured8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\uncaptured8.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
