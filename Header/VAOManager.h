@@ -39,5 +39,6 @@ void formVAOs(
     // Neptune icon
     float* verticesNeptuneIcon, size_t neptuneIconSize, unsigned int& VAOneptuneIcon,
     //Alien
-    float* verticesAlien, size_t alienSize, unsigned int& VAOalien
+    float* verticesAlien, size_t alienSize, unsigned int& VAOalien,
+    float* verticesHelp, size_t helpSize, unsigned int& VAOHelp
 );

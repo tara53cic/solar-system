@@ -83,3 +83,13 @@ Vec2 drawAlien(unsigned int alienShader, unsigned int VAOalien, unsigned int ali
 
     return { xPos, yPos };
 }
+void drawHelp(unsigned int backgroundShader, unsigned int VAOrect, unsigned int backgroundTexture) {
+
+    glUseProgram(backgroundShader);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, backgroundTexture);
+
+    glBindVertexArray(VAOrect);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+}

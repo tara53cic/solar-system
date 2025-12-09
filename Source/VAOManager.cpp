@@ -39,7 +39,8 @@ void formVAOs(
     // Neptune icon
     float* verticesNeptuneIcon, size_t neptuneIconSize, unsigned int& VAOneptuneIcon,
     //Alien
-    float* verticesAlien, size_t alienSize, unsigned int& VAOalien
+    float* verticesAlien, size_t alienSize, unsigned int& VAOalien,
+    float* verticesHelp, size_t helpSize, unsigned int& VAOHelp
 ) {
 
     // Pozadina
@@ -253,6 +254,22 @@ void formVAOs(
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+    //help
+    unsigned int VBOhelp;
+    glGenVertexArrays(1, &VAOHelp);
+    glGenBuffers(1, &VBOhelp);
+
+    glBindVertexArray(VAOHelp);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOhelp);
+    glBufferData(GL_ARRAY_BUFFER, helpSize, verticesHelp, GL_STATIC_DRAW);
+
+    // Atribut 0 (pozicija):
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    // Atribut 1 (boja):
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
     glEnableVertexAttribArray(1);
 }

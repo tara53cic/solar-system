@@ -177,9 +177,12 @@
     <Image Include="Resources\captured7.png" />
     <Image Include="Resources\captured8.png" />
     <Image Include="Resources\cursor.png" />
+    <Image Include="Resources\instructions.png" />
     <Image Include="Resources\jupiter.jpg" />
     <Image Include="Resources\mars.jpeg" />
     <Image Include="Resources\mercury.jpeg" />
+    <Image Include="Resources\mission-accomplished.png" />
+    <Image Include="Resources\mission-incomplete.png" />
     <Image Include="Resources\nametag2.png" />
     <Image Include="Resources\neptune.jpeg" />
     <Image Include="Resources\pluto.jpg" />
@@ -187,6 +190,7 @@
     <Image Include="Resources\rocket2.png" />
     <Image Include="Resources\saturn.jpg" />
     <Image Include="Resources\star.png" />
+    <Image Include="Resources\take-onboard.png" />
     <Image Include="Resources\uncaptured1.png" />
     <Image Include="Resources\uncaptured2.png" />
     <Image Include="Resources\uncaptured3.png" />

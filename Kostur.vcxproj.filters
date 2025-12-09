@@ -214,6 +214,18 @@
     <Image Include="Resources\uranus.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\mission-incomplete.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\instructions.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\mission-accomplished.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\take-onboard.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\ScienceGothic_Condensed-Regular.ttf">
