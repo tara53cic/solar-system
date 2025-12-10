@@ -291,8 +291,6 @@ int main()
 
         //jesmo li na planeti?
 
-        bool hit = false;
-
         registerPlanetBox(getBounds(verticesMercury));
         registerPlanetBox(getBounds(verticesVenus));
         registerPlanetBox(getBounds(verticesEarth));
@@ -324,7 +322,7 @@ int main()
         }
         case 1: 
         {
-            drawBackground(backgroundShader, VAObackground, mercuryTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, mercuryTexture); 
             if (!mercuryCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, mercuryAlienTexture);
                 mercuryCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -332,7 +330,7 @@ int main()
             break;
         }
         case 2: {
-            drawBackground(backgroundShader, VAObackground, venusTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, venusTexture); 
             if (!venusCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, venusAlienTexture);
                 venusCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -342,17 +340,17 @@ int main()
         case 3: {
             bool allCaught = mercuryCaught && venusCaught && marsCaught && jupiterCaught && saturnCaught && uranusCaught && neptuneCaught && plutoCaught;
             if (allCaught) {
-            drawBackground(backgroundShader, VAObackground, missionAccomplishedTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, missionAccomplishedTexture); 
 			}
 			else {
-                drawBackground(backgroundShader, VAObackground, missionIncompleteTexture); // crta pozadinu
+                drawBackground(backgroundShader, VAObackground, missionIncompleteTexture); 
             }
 
 			break;
         
         }
         case 4: {
-            drawBackground(backgroundShader, VAObackground, marsTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, marsTexture); 
             if (!marsCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, marsAlienTexture);
                 marsCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -360,7 +358,7 @@ int main()
             break;
         }
         case 5: {
-            drawBackground(backgroundShader, VAObackground, jupiterTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, jupiterTexture); 
             if (!jupiterCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, jupiterAlienTexture);
                 jupiterCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -368,7 +366,7 @@ int main()
             break;
         }
         case 6: {
-            drawBackground(backgroundShader, VAObackground, saturnTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, saturnTexture); 
             if (!saturnCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, saturnAlienTexture);
                 saturnCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -377,7 +375,7 @@ int main()
         }
         case 7:
         {
-            drawBackground(backgroundShader, VAObackground, uranusTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, uranusTexture); 
             if (!uranusCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, uranusAlienTexture);
                 uranusCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -386,7 +384,7 @@ int main()
         }
         case 8:
         {
-            drawBackground(backgroundShader, VAObackground, neptuneTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, neptuneTexture); 
             if (!neptuneCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, neptuneAlienTexture);
                 neptuneCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -397,7 +395,7 @@ int main()
 
         case 9:
         {
-            drawBackground(backgroundShader, VAObackground, plutoTexture); // crta pozadinu
+            drawBackground(backgroundShader, VAObackground, plutoTexture);
             if (!plutoCaught) {
                 Vec2 alienPos = drawAlien(alienShader, VAOAlien, plutoAlienTexture);
                 plutoCaught = processClick(window, alienPos.x, alienPos.y, verticesAlien);
@@ -407,7 +405,7 @@ int main()
         }
         case 10:
 		{
-			drawBackground(backgroundShader, VAObackground, instructionsTexture); // crta pozadinu
+			drawBackground(backgroundShader, VAObackground, instructionsTexture); 
 			break;
 		}
 
